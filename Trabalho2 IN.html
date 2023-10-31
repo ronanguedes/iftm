@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Trabalho Inteligencia de Negocios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- ---------------------------------texto CSS ------------------------------------------->
+  <style>
+    .row {
+      display: flex;
+      display: block;
+    }
+
+  
+/* ---------------------------------tabela CSS ------------------------------------------->*/
+.table{
+    width: 80%;
+    transform: translate(+15%, +10%);
+    background-image: linear-gradient(45seg, yellow,green); 
+ }
+ /* ---------------------------------texto CSS ------------------------------------------->*/
+ .titulocurriculo{
+    text-align: center;
+    background-image: linear-gradient(45seg, yellow,green);
+ }
+ /* ---------------------------------texto CSS ------------------------------------------->*/  
+ .bottonselect{
+
+    top:15%;
+    text-align: center;
+ }
+ /*<!-- --------------------------------- CSS ------------------------------------------->*/
+ .footer{
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        
+ }
+ .content {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+ 
+  </style>
+  
+</head>
+
+<body>
+  <!-- ---------------------------------navbar HTML parte soperior da pagina ------------------------------------------->
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <!-- <img src="ia.png" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+    Trabalho Inteligencia de Negocios
+  </a>
+</nav>
+<!-- ---------------------------------texto titulo HTML ------------------------------------------->
+<div class="containerCurriculo">
+    <div class="titulo">
+      <div class="titulocurriculo">
+          <h1>Abelhas</h1>
+      </div>
+    </div>
+<!-- --------------------8888888------------------------------------------------------->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Classificação de Tipo de Abelhas</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Comprimento do Corpo em cm &nbsp;&nbsp;&nbsp;</label>
+                <input type="number" class="1" id="1" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Envergadura da Asas em cm &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="number" class="2" id="2">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Comprimento das Antenas em cm</label>
+                <input type="number" class="3" id="3">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Comprimento das Pernas em cm &nbsp;</label>
+                <input type="number" class="4" id="4">
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button class="btn btn-success" onclick="calcula()">Classificar</button>
+            </div>
+          
+        </div>
+        <!-- /.card -->
+
+        
+
+
+      </div>
+      <!--/.col (left) -->
+      <!-- right column -->
+      
+      <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section>
+<!-- ---------------------88888888888------------------------------------------------------>
+    
+
+<div class="bottonselect">
+      <h1 id="result2"></h1>
+    </div>
+    
+    <!-- ---------------------------------texto HTML -------------------------------------------> 
+
+</div>
+
+<!-- ---------------------------------footer HTML parte inferior da pagina------------------------------------------->
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  function calcula(){
+
+    //alert("mjdskf");
+
+    var comprimentoCorpo2 = parseFloat(document.getElementById("1").value);
+    var envergaduraAsas2 = parseFloat(document.getElementById("2").value);
+    var comprimentoAntena2 = parseFloat(document.getElementById("3").value);
+    var comprimentoPerna2 = parseFloat(document.getElementById("4").value);
+
+
+//0.45524296675191817 0.37647058823529406 0.31092436974789917 0.3088235294117647 0.1568627450980393 
+    var comprimentoCorpoBombus = parseFloat(0.45524296675191817);
+    var envergaduraAsasBombus = parseFloat(0.37647058823529406);
+    var comprimentoAntenaBombus = parseFloat(0.31092436974789917);
+    var comprimentoPernaBombus = parseFloat(0.3088235294117647);
+	
+//0.608695652173913 0.8857142857142856 0.8163265306122449 0.7142857142857143 0.5714285714285714 
+    var comprimentoCorpoMelifera = parseFloat(0.608695652173913);
+    var envergaduraAsasMelifera = parseFloat(0.8857142857142856);
+    var comprimentoAntenaMelifera = parseFloat(0.8163265306122449);
+    var comprimentoPernaMelifera = parseFloat(0.7142857142857143);
+
+
+
+ // Calcular a distância euclidiana
+ var AbelhaMelifera = Math.sqrt(
+                Math.pow(comprimentoCorpo2 - comprimentoCorpoMelifera, 2) +
+                Math.pow(envergaduraAsas2 - envergaduraAsasMelifera, 2) +
+                Math.pow(comprimentoAntena2 - comprimentoAntenaMelifera, 2) +
+                Math.pow(comprimentoPerna2 - comprimentoPernaMelifera, 2)
+            );
+
+var Abelhabombus = Math.sqrt(
+                Math.pow(comprimentoCorpo2 - comprimentoCorpoBombus, 2) +
+                Math.pow(envergaduraAsas2 - envergaduraAsasBombus, 2) +
+                Math.pow(comprimentoAntena2 - comprimentoAntenaBombus, 2) +
+                Math.pow(comprimentoPerna2 - comprimentoPernaBombus, 2)
+            );
+
+if(Abelhabombus>AbelhaMelifera){
+  var classe = "Abela Melífera"; 
+
+    classe += "</br><img width='20%' height='20%' src='1.jpg' />"
+}else{
+  
+  var classe = "Abela Bombus";
+
+classe += "</br><img width='20%' height='20%' src='2.jpg' />"
+
+};
+
+    $("#result2").html(classe);
+
+  }
+
+  </script>
+
+</html>
